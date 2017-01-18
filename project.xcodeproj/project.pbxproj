@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8462CEFD1E2FBDB000CE8023 /* flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462CEFC1E2FBDB000CE8023 /* flight.swift */; };
 		8462CEFF1E2FC61C00CE8023 /* Aircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462CEFE1E2FC61C00CE8023 /* Aircraft.swift */; };
+		8462CF011E2FEB1100CE8023 /* AircraftRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462CF001E2FEB1100CE8023 /* AircraftRepo.swift */; };
 		84B86F081E152E0300879ECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B86F071E152E0300879ECB /* AppDelegate.swift */; };
 		84B86F0A1E152E0300879ECB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B86F091E152E0300879ECB /* FirstViewController.swift */; };
 		84B86F0C1E152E0300879ECB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B86F0B1E152E0300879ECB /* SecondViewController.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		8462CEFC1E2FBDB000CE8023 /* flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = flight.swift; sourceTree = "<group>"; };
 		8462CEFE1E2FC61C00CE8023 /* Aircraft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aircraft.swift; sourceTree = "<group>"; };
+		8462CF001E2FEB1100CE8023 /* AircraftRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftRepo.swift; sourceTree = "<group>"; };
 		84B86F041E152E0300879ECB /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B86F071E152E0300879ECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B86F091E152E0300879ECB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				84B86F151E152E0300879ECB /* Info.plist */,
 				8462CEFC1E2FBDB000CE8023 /* flight.swift */,
 				8462CEFE1E2FC61C00CE8023 /* Aircraft.swift */,
+				8462CF001E2FEB1100CE8023 /* AircraftRepo.swift */,
 			);
 			path = project;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				8462CEFF1E2FC61C00CE8023 /* Aircraft.swift in Sources */,
 				84B86F081E152E0300879ECB /* AppDelegate.swift in Sources */,
 				84B86F0A1E152E0300879ECB /* FirstViewController.swift in Sources */,
+				8462CF011E2FEB1100CE8023 /* AircraftRepo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
