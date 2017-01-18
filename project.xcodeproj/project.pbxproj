@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8462CEFD1E2FBDB000CE8023 /* flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462CEFC1E2FBDB000CE8023 /* flight.swift */; };
+		8462CEFF1E2FC61C00CE8023 /* Aircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462CEFE1E2FC61C00CE8023 /* Aircraft.swift */; };
 		84B86F081E152E0300879ECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B86F071E152E0300879ECB /* AppDelegate.swift */; };
 		84B86F0A1E152E0300879ECB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B86F091E152E0300879ECB /* FirstViewController.swift */; };
 		84B86F0C1E152E0300879ECB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B86F0B1E152E0300879ECB /* SecondViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8462CEFC1E2FBDB000CE8023 /* flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = flight.swift; sourceTree = "<group>"; };
+		8462CEFE1E2FC61C00CE8023 /* Aircraft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aircraft.swift; sourceTree = "<group>"; };
 		84B86F041E152E0300879ECB /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B86F071E152E0300879ECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B86F091E152E0300879ECB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				84B86F101E152E0300879ECB /* Assets.xcassets */,
 				84B86F121E152E0300879ECB /* LaunchScreen.storyboard */,
 				84B86F151E152E0300879ECB /* Info.plist */,
+				8462CEFC1E2FBDB000CE8023 /* flight.swift */,
+				8462CEFE1E2FC61C00CE8023 /* Aircraft.swift */,
 			);
 			path = project;
 			sourceTree = "<group>";
@@ -266,6 +272,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B86F0C1E152E0300879ECB /* SecondViewController.swift in Sources */,
+				8462CEFD1E2FBDB000CE8023 /* flight.swift in Sources */,
+				8462CEFF1E2FC61C00CE8023 /* Aircraft.swift in Sources */,
 				84B86F081E152E0300879ECB /* AppDelegate.swift in Sources */,
 				84B86F0A1E152E0300879ECB /* FirstViewController.swift in Sources */,
 			);
@@ -518,6 +526,7 @@
 				84B86F301E152E0300879ECB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84B86F311E152E0300879ECB /* Build configuration list for PBXNativeTarget "projectTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +535,7 @@
 				84B86F331E152E0300879ECB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84B86F341E152E0300879ECB /* Build configuration list for PBXNativeTarget "projectUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +544,7 @@
 				84B86F361E152E0300879ECB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
