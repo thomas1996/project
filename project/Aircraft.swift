@@ -12,9 +12,11 @@ import Foundation
 class Aircraft : NSObject{
     var callsign : String
     var type : String
-    init(callsign:String,type: String) {
+    var origin : String
+    init(callsign:String,type: String, origin :String) {
         self.callsign = callsign
         self.type = type
+        self.origin = origin
 
     }
 }

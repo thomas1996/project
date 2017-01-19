@@ -8,9 +8,11 @@
 
 import UIKit
 
-class FirstViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate{
+class FirstViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
-    var option = AircraftRepo()
+    var option = AircraftRepo();
+    var repo = FlightRepo();
+    let imagePicker = UIImagePickerController();
     
     
     @IBOutlet weak var txfComments: UITextField!
@@ -21,6 +23,7 @@ class FirstViewController: UIViewController,UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var txfSim: UITextField!
     @IBOutlet weak var txfInstructor: UITextField!
     @IBOutlet weak var txfAircraft: UITextField!
+    @IBOutlet weak var lblError: UILabel!
     
   
   
@@ -34,19 +37,82 @@ class FirstViewController: UIViewController,UIPickerViewDataSource, UIPickerView
 
     }
     
-        func handleDatePicker(sender: UIDatePicker){
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        txfDate.text = dateFormatter.string(from: sender.date)
-    }
     
     @IBAction func btnNew(_ sender: UIBarButtonItem) {
+        //clear errors
         
+        lblError.text = "";
+        //string to date
+        
+        let formatter = DateFormatter();
+        formatter.dateFormat = "dd-MM-yyyy";
+        let dateFlight = formatter.date(from: txfDate.text!);
+        
+        //checking on emtpy textfields
+        if ((txfRoute.text?.isEmpty)! || (txfRoute.text?.trimmingCharacters(in: .whitespaces).isEmpty)!)
+        {
+            txfRoute.text = "No route";
+        }
+        if ((txfComments.text?.isEmpty)! || (txfComments.text?.trimmingCharacters(in: .whitespaces).isEmpty)!)
+        {
+            txfComments.text = "No comment";
+        }
+        // checking on emty numbers
+        
+        let pic = checkEmty(value:(NumberFormatter().number(from: txfPic.text!)?.doubleValue)!);
+        let dual = checkEmty(value:(NumberFormatter().number(from: txfdual.text!)?.doubleValue)!);
+        let sim = checkEmty(value:(NumberFormatter().number(from: txfSim.text!)?.doubleValue)!);
+        let instructor = checkEmty(value: NumberFormatter().number(from: txfInstructor.text!)?.doubleValue);
+        let aircraft = option.getAircraft(callsign: txfAircraft.text!);
+        
+        let total = pic + dual + sim + instructor;
+        if(total > 0 )
+        {
+          let newFlight = Flight(date: dateFlight!, aircraft: aircraft!, route: txfRoute.text!, comment: txfComments.text!, PIC: pic, dual: dual, Sim: sim, instructor: instructor, total: total, photo: UIImage())
+            
+            repo.addFlight(flight: newFlight);
+            reset();
+        }
+        else
+        {
+         lblError.text = "Please fill at least 1 min of flightime ";
+        }
+           
     }
   
     
     
     @IBAction func btnReset(_ sender: UIBarButtonItem) {
+        
+        reset();
+    }
+    @IBAction func btnAddPhoto(_ sender: UIBarButtonItem) {
+        imagePicker.allowsEditing = false;
+        imagePicker.sourceType = .photoLibrary;
+        
+    }
+    
+    
+    //own methods
+    
+    func checkEmty(value:Double?) ->Double
+    {
+        var output:Double
+        if value == nil
+        {
+            output = 0.0;
+        }
+        else{
+            output = value!;
+        }
+        return output;
+    }
+    func handleDatePicker(sender: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        txfDate.text = dateFormatter.string(from: sender.date)
+    }
+    func reset(){
         let date = NSDate();
         let formatter = DateFormatter();
         formatter.dateFormat = "dd-MM-YYYY";
@@ -58,12 +124,13 @@ class FirstViewController: UIViewController,UIPickerViewDataSource, UIPickerView
         txfSim.text = ""
         txfdual.text = ""
         txfInstructor.text = ""
-        
-        
-    }
-    @IBAction func btnAddPhoto(_ sender: UIBarButtonItem) {
+
         
     }
+
+    
+    
+    //override functions
  
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1;
@@ -85,24 +152,26 @@ class FirstViewController: UIViewController,UIPickerViewDataSource, UIPickerView
     override func viewDidLoad() {
         
         super.viewDidLoad();
+        //set date today in datepicker
+        
         let date = NSDate();
         let formatter = DateFormatter();
-        
         formatter.dateFormat = "dd-MM-YYYY";
+         txfDate.text = formatter.string(from: date as Date)
+        //initialise the datepicker
+        
         let pickerView = UIPickerView();
         pickerView.delegate = self;
         pickerView.dataSource = self;
+        //initialise the imagepicker
+        
+        imagePicker.delegate = self
     
-       let option = AircraftRepo();
-      
+        //initialise the aircraft picker
+        let option = AircraftRepo();
         txfAircraft.inputView = pickerView;
         txfAircraft.text = option.getList()[1].callsign;
-        
-        
-        
-        
-        txfDate.text = formatter.string(from: date as Date)
-        // Do any additional setup after loading the view, typically from a nib.
+
  
     }
 
