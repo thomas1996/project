@@ -20,9 +20,26 @@ class SecondViewController: UIViewController,UITableViewDataSource, UITableViewD
     
     @IBAction func btnNew(_ sender: UIBarButtonItem) {
         
+        let alert = UIAlertController(title: "new aircraft", message: "fill out all the fields to add a new aircraft", preferredStyle: UIAlertControllerStyle.alert);
+        
+        
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            self.addNewAircraft();
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+       self.present(alert, animated: true, completion: nil)
+    }
+
+
+    
+    func addNewAircraft(){
         
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repo.getList().count;
