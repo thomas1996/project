@@ -13,11 +13,7 @@ class SecondViewController: UIViewController,UITableViewDataSource, UITableViewD
    
     
     @IBOutlet weak var tbltable: UITableView!
-    
-   
-    
-    
-    
+
     @IBAction func btnNew(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "new aircraft", message: "fill out all the fields to add a new aircraft", preferredStyle: UIAlertControllerStyle.alert);

@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +12,7 @@
         <!--New flight-->
         <scene sceneID="4QD-Go-K0H">
             <objects>
-                <viewController id="bwc-H0-Qt5" customClass="FirstViewController" customModule="project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bwc-H0-Qt5" customClass="TableViewController" customModule="project" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="97K-px-uDv"/>
                         <viewControllerLayoutGuide type="bottom" id="Qcg-5g-Cte"/>
@@ -23,9 +22,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRN-2y-zOt">
-                                <rect key="frame" x="0.0" y="65" width="375" height="509"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="446"/>
                                 <connections>
-                                    <segue destination="IPR-KU-By8" kind="embed" id="Y8g-9D-lFQ"/>
+                                    <segue destination="IPR-KU-By8" kind="embed" id="RpU-Jy-hjn"/>
                                 </connections>
                             </containerView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvT-dQ-T8G">
@@ -54,21 +53,36 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NmH-Iw-8Y5"/>
                                     <barButtonItem systemItem="add" id="e3l-dK-tOs">
                                         <connections>
-                                            <action selector="btnNew:" destination="bwc-H0-Qt5" id="zsY-c1-XRo"/>
+                                            <action selector="btnNew:" destination="bwc-H0-Qt5" id="gdW-Xj-rXk"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vi6-hD-QSd">
+                                <rect key="frame" x="0.0" y="519" width="375" height="55"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lg4-nq-JDp">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="9hD-pz-dXn"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vi6-hD-QSd" firstAttribute="centerX" secondItem="IjH-KR-pnh" secondAttribute="centerX" id="5c9-3r-et3"/>
                             <constraint firstAttribute="trailing" secondItem="7if-0i-gry" secondAttribute="trailing" id="65g-ZF-drb"/>
+                            <constraint firstItem="vi6-hD-QSd" firstAttribute="top" secondItem="SRN-2y-zOt" secondAttribute="bottom" constant="8" id="EI8-Kq-xre"/>
                             <constraint firstAttribute="trailing" secondItem="SRN-2y-zOt" secondAttribute="trailing" id="Hk8-O7-h9p"/>
                             <constraint firstItem="7if-0i-gry" firstAttribute="top" secondItem="97K-px-uDv" secondAttribute="bottom" id="JS0-89-07q"/>
-                            <constraint firstItem="uvT-dQ-T8G" firstAttribute="top" secondItem="SRN-2y-zOt" secondAttribute="bottom" id="Kuz-Ig-2Tf"/>
                             <constraint firstItem="uvT-dQ-T8G" firstAttribute="leading" secondItem="IjH-KR-pnh" secondAttribute="leading" id="LGV-4a-BkQ"/>
+                            <constraint firstAttribute="trailing" secondItem="vi6-hD-QSd" secondAttribute="trailing" id="MkF-fh-voj"/>
+                            <constraint firstItem="uvT-dQ-T8G" firstAttribute="top" secondItem="vi6-hD-QSd" secondAttribute="bottom" id="NOp-WD-4tm"/>
                             <constraint firstItem="SRN-2y-zOt" firstAttribute="top" secondItem="7if-0i-gry" secondAttribute="bottom" id="Wd6-TG-jZY"/>
                             <constraint firstItem="Qcg-5g-Cte" firstAttribute="top" secondItem="uvT-dQ-T8G" secondAttribute="bottom" id="dB9-wo-qgu"/>
+                            <constraint firstItem="vi6-hD-QSd" firstAttribute="leading" secondItem="IjH-KR-pnh" secondAttribute="leading" id="dsY-wc-QUB"/>
                             <constraint firstAttribute="trailing" secondItem="uvT-dQ-T8G" secondAttribute="trailing" id="hJc-gB-k2K"/>
                             <constraint firstItem="7if-0i-gry" firstAttribute="leading" secondItem="IjH-KR-pnh" secondAttribute="leading" id="kBx-IH-QXc"/>
                             <constraint firstAttribute="trailing" secondItem="7if-0i-gry" secondAttribute="trailing" id="nax-By-Qmb"/>
@@ -77,17 +91,23 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="New flight" id="MoX-t6-JHY"/>
+                    <connections>
+                        <outlet property="imageView" destination="Lg4-nq-JDp" id="UH1-kv-2yG"/>
+                        <outlet property="stackImage" destination="vi6-hD-QSd" id="hpc-0n-bO7"/>
+                        <outlet property="tlbable" destination="SRN-2y-zOt" id="IUZ-m1-aAs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSW-tA-RpB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-889" y="276"/>
+            <point key="canvasLocation" x="-890.39999999999998" y="275.71214392803603"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="mOJ-t7-riB">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ndX-Sg-wKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="IPR-KU-By8" customClass="FirstViewController" customModule="project" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="FkC-Hj-6GL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="509"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="446"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -320,7 +340,6 @@
                         <outlet property="txfdual" destination="kaj-JC-Vd3" id="Ubz-oc-9Ie"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ndX-Sg-wKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-890" y="1194"/>
         </scene>

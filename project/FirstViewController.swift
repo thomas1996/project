@@ -13,6 +13,11 @@ class FirstViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     var option = AircraftRepo();
     var repo = FlightRepo();
     let imagePicker = UIImagePickerController();
+    let documentsDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+    
+    let tempImageName = "temp_image.jpg"
+    var imageUrl = NSURL();
+    
     
     
     @IBOutlet weak var txfComments: UITextField!
@@ -24,7 +29,9 @@ class FirstViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     @IBOutlet weak var txfInstructor: UITextField!
     @IBOutlet weak var txfAircraft: UITextField!
     @IBOutlet weak var lblError: UILabel!
+    @IBOutlet weak var stackImage: UIStackView!
     
+    @IBOutlet weak var imageView: UIImageView!
    
   
   
@@ -91,7 +98,23 @@ class FirstViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         imagePicker.allowsEditing = false;
         imagePicker.sourceType = .photoLibrary;
         
+      //  presentedViewController(imagePicker,animated:true,completion:nil);
+        
+        
     }
+    @IBAction func dismiss(sender: AnyObject){
+    /*  if let url = imageUrl{
+          
+            let fileManager = FileManager()
+            if fileManager.fileExistsAtPath(url.absoluteString!) {
+                fileManager.removeItemAtURL(url, error: nil)
+            }
+        }
+ */
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
     
     
     //own methods
@@ -128,7 +151,7 @@ class FirstViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
 
         
     }
-
+    
     
     
     //override functions
@@ -150,9 +173,24 @@ class FirstViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         txfAircraft.text = option.getList()[row].callsign
     }
     
-    override func viewDidLoad() {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true,completion:nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
+        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        imageView.contentMode = UIViewContentMode.scaleAspectFit;
+        
+        
+        stackImage.isHidden = false;
+        dismiss(animated: true,completion:nil);
+}
+
+    override func viewDidLoad() {
         super.viewDidLoad();
+        
+        stackImage.isHidden = true;
         //set date today in datepicker
         
         let date = NSDate();

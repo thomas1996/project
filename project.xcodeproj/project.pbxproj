@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		844E2E7E1E3360C6005C76BB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E2E7D1E3360C6005C76BB /* TableViewController.swift */; };
+		84549A371E33874D00F4D935 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84549A361E33874D00F4D935 /* CloudKit.framework */; };
 		8462CEFD1E2FBDB000CE8023 /* flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462CEFC1E2FBDB000CE8023 /* flight.swift */; };
 		8462CEFF1E2FC61C00CE8023 /* Aircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462CEFE1E2FC61C00CE8023 /* Aircraft.swift */; };
 		8462CF011E2FEB1100CE8023 /* AircraftRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462CF001E2FEB1100CE8023 /* AircraftRepo.swift */; };
@@ -42,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		844E2E7D1E3360C6005C76BB /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		84549A351E3386F700F4D935 /* project.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = project.entitlements; sourceTree = "<group>"; };
+		84549A361E33874D00F4D935 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		8462CEFC1E2FBDB000CE8023 /* flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = flight.swift; sourceTree = "<group>"; };
 		8462CEFE1E2FC61C00CE8023 /* Aircraft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aircraft.swift; sourceTree = "<group>"; };
 		8462CF001E2FEB1100CE8023 /* AircraftRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftRepo.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84549A371E33874D00F4D935 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84549A321E3386F700F4D935 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84549A361E33874D00F4D935 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		84B86EFB1E152E0300879ECB = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +107,7 @@
 				84B86F1D1E152E0300879ECB /* projectTests */,
 				84B86F281E152E0300879ECB /* projectUITests */,
 				84B86F051E152E0300879ECB /* Products */,
+				84549A321E3386F700F4D935 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +124,7 @@
 		84B86F061E152E0300879ECB /* project */ = {
 			isa = PBXGroup;
 			children = (
+				84549A351E3386F700F4D935 /* project.entitlements */,
 				84B86F071E152E0300879ECB /* AppDelegate.swift */,
 				84B86F091E152E0300879ECB /* FirstViewController.swift */,
 				84B86F0B1E152E0300879ECB /* SecondViewController.swift */,
@@ -208,14 +222,28 @@
 		84B86EFC1E152E0300879ECB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Admin;
 				TargetAttributes = {
 					84B86F031E152E0300879ECB = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 27VWD5GRCM;
+						DevelopmentTeam = CTG63969V9;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.WAC = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					84B86F191E152E0300879ECB = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -442,10 +470,13 @@
 		84B86F2F1E152E0300879ECB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 27VWD5GRCM;
+				CODE_SIGN_ENTITLEMENTS = project/project.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CTG63969V9;
 				INFOPLIST_FILE = project/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jarvis.project;
+				PRODUCT_BUNDLE_IDENTIFIER = "thomas.lefevere-hotmail.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -454,10 +485,13 @@
 		84B86F301E152E0300879ECB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 27VWD5GRCM;
+				CODE_SIGN_ENTITLEMENTS = project/project.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CTG63969V9;
 				INFOPLIST_FILE = project/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jarvis.project;
+				PRODUCT_BUNDLE_IDENTIFIER = "thomas.lefevere-hotmail.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

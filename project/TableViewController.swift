@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import UIKit
+
+class TableViewController : UIViewController{
+    
+    @IBOutlet weak var tblTable: UIView!
+    
+    
+    @IBAction func btnNew(_ sender: Any) {
+        tblTable.
+    }
+}

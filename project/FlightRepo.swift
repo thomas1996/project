@@ -8,11 +8,18 @@
 
 import Foundation
 import UIKit
+import CloudKit
 
-class FlightRepo : NSObject{
+class FlightRepo {
+    
+    //let database = CKContainer.defaultContainer().privateCloudDatabase
+    
     var list = [Flight]()
     
-    override init() {
+    
+    
+    
+    init() {
         let flight1 = Flight(date: NSDate() as Date, aircraft: Aircraft(callsign: "OO-STB",type: "R22",origin: "helicopter"), route: "", comment: "", PIC: 1.2, dual: 1.0, Sim: 0.0, instructor: 0.0, total: 2.2, photo: UIImage());
 
         list.append(flight1);
@@ -21,6 +28,13 @@ class FlightRepo : NSObject{
     func addFlight(flight : Flight)
     {
         list.append(flight);
+        let timestamp = String(format: "%f", NSDate.timeIntervalSinceReferenceDate);
+        let id = CKRecordID(recordName: timestamp);
+        
+        _ = CKRecord(recordType: "Flight", recordID: id);
+        
+   
+        
     }
     
     func deleteFlight(flight : Flight)-> Bool{
