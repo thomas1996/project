@@ -24,14 +24,14 @@ class AircraftRepo :NSObject{
     var list:[Aircraft]=[]
     
     override init() {
-        /*let aircraft1 = Aircraft(callsign: "OO-STD",type: "R44",origin:"helicopter");
+        let aircraft1 = Aircraft(callsign: "OO-STD",type: "R44",origin:"helicopter");
         let aircraft2 = Aircraft(callsign: "OO-STB",type: "R22",origin:"helicopter");
         let aircraft3 = Aircraft(callsign: "OO-TOO", type: "peper", origin:"aircraft");
         
         list.append(aircraft1);
         list.append(aircraft2);
         list.append(aircraft3);
- */
+ 
         container = CKContainer.default();
         publicDB = container.publicCloudDatabase;
         privateDB = container.privateCloudDatabase;
@@ -76,6 +76,8 @@ class AircraftRepo :NSObject{
 
     
     func getList() ->  [Aircraft]{
+        self.fetchAircraft();
+
         return list;
     }
     

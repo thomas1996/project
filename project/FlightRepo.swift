@@ -51,6 +51,20 @@ class FlightRepo {
         return list;
     }
     
+    func getAllFlights(type : String)->[Flight]{
+        var heli = [Flight]();
+        for flight in list{
+            if(flight.aircraft.origin.lowercased() == type)
+            {
+                heli.append(flight);
+            }
+        }
+        if (heli.count == 0) {
+            heli = [];
+        }
+        return heli;
+    }
+    
     
     
     

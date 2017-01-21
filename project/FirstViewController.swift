@@ -7,16 +7,24 @@
 //
 
 import UIKit
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
 
-class FirstViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class FirstViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate,UINavigationControllerDelegate,UITextFieldDelegate{
     
     var option = AircraftRepo();
     var repo = FlightRepo();
-    let imagePicker = UIImagePickerController();
-    let documentsDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
     
-    let tempImageName = "temp_image.jpg"
-    var imageUrl = NSURL();
+    
+    
     
     
     
@@ -29,9 +37,7 @@ class FirstViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     @IBOutlet weak var txfInstructor: UITextField!
     @IBOutlet weak var txfAircraft: UITextField!
     @IBOutlet weak var lblError: UILabel!
-    @IBOutlet weak var stackImage: UIStackView!
-    
-    @IBOutlet weak var imageView: UIImageView!
+   
    
   
   
@@ -44,116 +50,15 @@ class FirstViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         datePicker.addTarget(self, action: #selector(FirstViewController.handleDatePicker), for: UIControlEvents.valueChanged)
 
     }
-    
-    
-    @IBAction func btnNew(_ sender: UIBarButtonItem) {
-        //clear errors
-        
-        lblError.text = "";
-        //string to date
-        
-        let formatter = DateFormatter();
-        formatter.dateFormat = "dd-MM-yyyy";
-        let dateFlight = formatter.date(from: txfDate.text!);
-        
-        //checking on emtpy textfields
-        if ((txfRoute.text?.isEmpty)! || (txfRoute.text?.trimmingCharacters(in: .whitespaces).isEmpty)!)
-        {
-            txfRoute.text = "No route";
-        }
-        if ((txfComments.text?.isEmpty)! || (txfComments.text?.trimmingCharacters(in: .whitespaces).isEmpty)!)
-        {
-            txfComments.text = "No comment";
-        }
-        // checking on emty numbers
-        
-        let pic = checkEmty(value:(NumberFormatter().number(from: txfPic.text!)?.doubleValue)!);
-        let dual = checkEmty(value:(NumberFormatter().number(from: txfdual.text!)?.doubleValue)!);
-        let sim = checkEmty(value:(NumberFormatter().number(from: txfSim.text!)?.doubleValue)!);
-        let instructor = checkEmty(value: NumberFormatter().number(from: txfInstructor.text!)?.doubleValue);
-        let aircraft = option.getAircraft(callsign: txfAircraft.text!);
-        
-        let total = pic + dual + sim + instructor;
-        if(total > 0 )
-        {
-          let newFlight = Flight(date: dateFlight!, aircraft: aircraft!, route: txfRoute.text!, comment: txfComments.text!, PIC: pic, dual: dual, Sim: sim, instructor: instructor, total: total, photo: UIImage())
-            
-            repo.addFlight(flight: newFlight);
-            reset();
-        }
-        else
-        {
-         lblError.text = "Please fill at least 1 min of flightime ";
-        }
-           
-    }
-  
-    
-    
-    @IBAction func btnReset(_ sender: UIBarButtonItem) {
-        
-        reset();
-    }
-    @IBAction func btnAddPhoto(_ sender: UIBarButtonItem) {
-        imagePicker.allowsEditing = false;
-        imagePicker.sourceType = .photoLibrary;
-        
-      //  presentedViewController(imagePicker,animated:true,completion:nil);
-        
-        
-    }
-    @IBAction func dismiss(sender: AnyObject){
-    /*  if let url = imageUrl{
-          
-            let fileManager = FileManager()
-            if fileManager.fileExistsAtPath(url.absoluteString!) {
-                fileManager.removeItemAtURL(url, error: nil)
-            }
-        }
- */
-        
-        navigationController?.popViewController(animated: true)
-    }
-    
-    
-    
+ 
     //own methods
     
-    func checkEmty(value:Double?) ->Double
-    {
-        var output:Double
-        if value == nil
-        {
-            output = 0.0;
-        }
-        else{
-            output = value!;
-        }
-        return output;
-    }
-    func handleDatePicker(sender: UIDatePicker){
+        func handleDatePicker(sender: UIDatePicker){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         txfDate.text = dateFormatter.string(from: sender.date)
     }
-    func reset(){
-        let date = NSDate();
-        let formatter = DateFormatter();
-        formatter.dateFormat = "dd-MM-YYYY";
-        txfDate.text = formatter.string(from: date as Date)
-        
-        txfComments.text = ""
-        txfRoute.text = ""
-        txfPic.text = ""
-        txfSim.text = ""
-        txfdual.text = ""
-        txfInstructor.text = ""
-
-        
-    }
-    
-    
-    
+  
     //override functions
  
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -173,24 +78,38 @@ class FirstViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         txfAircraft.text = option.getList()[row].callsign
     }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true,completion:nil)
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        textField.delegate = self;
+        if textField == txfDate {
+            txfAircraft.becomeFirstResponder();
+        };if textField == txfAircraft {
+            txfComments.becomeFirstResponder();
+        };if textField == txfComments {
+            txfRoute.becomeFirstResponder();
+        };if textField == txfRoute {
+            txfPic.becomeFirstResponder();
+        };if textField == txfPic {
+            txfdual.becomeFirstResponder();
+        };if textField == txfdual {
+            txfSim.becomeFirstResponder();
+        };if textField == txfSim {
+            txfInstructor.becomeFirstResponder();
+            
+        return true
+    }
+        return false;
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        imageView.contentMode = UIViewContentMode.scaleAspectFit;
-        
-        
-        stackImage.isHidden = false;
-        dismiss(animated: true,completion:nil);
-}
 
+
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad();
-        
-        stackImage.isHidden = true;
+        lblError.text = "";
+       
+        self.hideKeyboardWhenTappedAround();
         //set date today in datepicker
         
         let date = NSDate();
@@ -204,12 +123,18 @@ class FirstViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         pickerView.dataSource = self;
         //initialise the imagepicker
         
-        imagePicker.delegate = self
+        
+    
     
         //initialise the aircraft picker
         let option = AircraftRepo();
         txfAircraft.inputView = pickerView;
-        txfAircraft.text = option.getList()[1].callsign;
+        if(option.getList().count > 0)
+        {txfAircraft.text = option.getList()[0].callsign;
+        }else{
+            txfAircraft.text = "Add an aicraft"
+        }
+        
 
  
     }
