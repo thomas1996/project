@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		844E2E7E1E3360C6005C76BB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E2E7D1E3360C6005C76BB /* TableViewController.swift */; };
 		8462CEFD1E2FBDB000CE8023 /* flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462CEFC1E2FBDB000CE8023 /* flight.swift */; };
 		8462CEFF1E2FC61C00CE8023 /* Aircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462CEFE1E2FC61C00CE8023 /* Aircraft.swift */; };
 		8462CF011E2FEB1100CE8023 /* AircraftRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462CF001E2FEB1100CE8023 /* AircraftRepo.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		844E2E7D1E3360C6005C76BB /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		8462CEFC1E2FBDB000CE8023 /* flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = flight.swift; sourceTree = "<group>"; };
 		8462CEFE1E2FC61C00CE8023 /* Aircraft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aircraft.swift; sourceTree = "<group>"; };
 		8462CF001E2FEB1100CE8023 /* AircraftRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftRepo.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				8462CF001E2FEB1100CE8023 /* AircraftRepo.swift */,
 				8462CF021E30C2DF00CE8023 /* FlightRepo.swift */,
 				84DA3C081E31F4260061A607 /* ThirdViewController.swift */,
+				844E2E7D1E3360C6005C76BB /* TableViewController.swift */,
 			);
 			path = project;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				8462CF031E30C2DF00CE8023 /* FlightRepo.swift in Sources */,
 				84B86F0A1E152E0300879ECB /* FirstViewController.swift in Sources */,
 				84DA3C091E31F4260061A607 /* ThirdViewController.swift in Sources */,
+				844E2E7E1E3360C6005C76BB /* TableViewController.swift in Sources */,
 				8462CF011E2FEB1100CE8023 /* AircraftRepo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

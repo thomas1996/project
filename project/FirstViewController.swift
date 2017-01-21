@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class FirstViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     var option = AircraftRepo();
     var repo = FlightRepo();
@@ -25,6 +25,7 @@ class FirstViewController: UIViewController,UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var txfAircraft: UITextField!
     @IBOutlet weak var lblError: UILabel!
     
+   
   
   
     @IBAction func changeDate(_ sender: UITextField) {
