@@ -7,11 +7,12 @@
 //
 
 import UIKit
-
+import CloudKit
 
 class ThirdViewController : UIViewController,UITableViewDataSource, UITableViewDelegate{
     
     let repo = FlightRepo();
+    var flights = [Flight]();
     
     @IBOutlet weak var tblTable: UITableView!
     
@@ -33,10 +34,28 @@ class ThirdViewController : UIViewController,UITableViewDataSource, UITableViewD
         let date = formatter.string(from: repo.getList()[indexPath.item].date);
         
         let time = String(repo.getList()[indexPath.item].total);
-        cell.textLabel?.text = date + " " + repo.getList()[indexPath.item].aircraft.callsign + "(" + time + "h)";
+        cell.textLabel?.text = date + " " + repo.getList()[indexPath.item].aircraft?.callsign + "(" + time + "h)";
         
         
         return cell
+    }
+    
+    private func configureView(){
+    //    let fetchingRecentsOperation = BlockOperation();
+        let semaphore = DispatchSemaphore(value: 0);
+        
+        repo.fetchFlights(number: 10, flightCompletion: {(flight)-> Void in
+            self.flights.append(flight);
+            self.view.reloadInputViews();
+        },completion: { (flights,succes) -> Void in
+            self.flights = flights;
+            self.view.reloadInputViews();
+        })
+        
+      //  semaphore.wait(timeout: dispatch_time(DISPATCH_TIME_FOREVER));
+            
+        
+        
     }
     
     
@@ -48,6 +67,11 @@ class ThirdViewController : UIViewController,UITableViewDataSource, UITableViewD
         
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+    configureView()
     }
     
     override func didReceiveMemoryWarning() {

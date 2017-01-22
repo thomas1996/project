@@ -5,7 +5,6 @@
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
 		<string>iCloud.thomas.lefevere-hotmail.com</string>
-		<string>iCloud.thomas-lefevere</string>
 	</array>
 	<key>com.apple.developer.icloud-services</key>
 	<array>

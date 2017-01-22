@@ -9,7 +9,9 @@
 import UIKit
 
 class SecondViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
-    let repo = AircraftRepo();
+     var repo = AircraftRepo()
+    lazy var list = AircraftRepo().getList();
+
    
     
     @IBOutlet weak var tbltable: UITableView!
@@ -38,20 +40,20 @@ class SecondViewController: UIViewController,UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repo.getList().count;
+        return list.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
                 let cell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath)
-                switch repo.getList()[indexPath.item].origin.lowercased() {
+                switch list[indexPath.item].origin.lowercased() {
         case "aircraft":cell.imageView?.image = #imageLiteral(resourceName: "Airplane ");
         case "helicopter":cell.imageView?.image = #imageLiteral(resourceName: "helicopter");
         default:
             cell.imageView?.image = #imageLiteral(resourceName: "helicopter");
         }
         
-        cell.textLabel?.text = repo.getList()[indexPath.item].callsign + " type: " + repo.getList()[indexPath.item].type;
+        cell.textLabel?.text = list[indexPath.item].callsign + " type: " + repo.getList()[indexPath.item].type;
         
 
         return cell
@@ -63,17 +65,22 @@ class SecondViewController: UIViewController,UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             tbltable.deleteRows(at: [indexPath], with: .fade);
-            _ = repo.deleteAircraft(aircraft: repo.getList()[indexPath.item]);
+            _ = repo.deleteAircraft(aircraft: list[indexPath.item]);
             }
     }
     
     
 
     override func viewDidLoad() {
+        //let repo = AircraftRepo();
+        tbltable.reloadData();
+
         super.viewDidLoad()
         tbltable.dataSource = self;
         tbltable.delegate = self;
-        tbltable.reloadData();
+        tbltable.reloadData()
+       // self.view.reloadInputViews();
+       // tbltable.beginUpdates();
         
         
         

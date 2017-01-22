@@ -22,13 +22,15 @@ class AddAircraftController : UIViewController{
     
     @IBAction func btnHeli(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected;
-        sender.setBackgroundImage(#imageLiteral(resourceName: "Helicopter Filled-100"), for: UIControlState.selected);
+        sender.isHighlighted = !sender.isHighlighted;
+        sender.setBackgroundImage(#imageLiteral(resourceName: "Helicopter checked"), for: UIControlState.selected);
         
         btnAir.isSelected = false;
 
     }
     @IBAction func btnAir(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+        sender.isSelected = !sender.isSelected;
+        sender.isHighlighted = !sender.isHighlighted;
         sender.setBackgroundImage(#imageLiteral(resourceName: "Airplane checked"), for: UIControlState.selected);
         
         btnHeli.isSelected = false;

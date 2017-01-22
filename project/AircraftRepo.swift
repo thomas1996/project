@@ -24,6 +24,7 @@ class AircraftRepo :NSObject{
     var list:[Aircraft]=[]
     
     override init() {
+    
         let aircraft1 = Aircraft(callsign: "OO-STD",type: "R44",origin:"helicopter");
         let aircraft2 = Aircraft(callsign: "OO-STB",type: "R22",origin:"helicopter");
         let aircraft3 = Aircraft(callsign: "OO-TOO", type: "peper", origin:"aircraft");
@@ -32,10 +33,12 @@ class AircraftRepo :NSObject{
         list.append(aircraft2);
         list.append(aircraft3);
  
+ 
+      
         container = CKContainer.default();
         publicDB = container.publicCloudDatabase;
         privateDB = container.privateCloudDatabase;
-        
+       
     }
     
     func addAircraft(aircraft : Aircraft){
@@ -91,17 +94,50 @@ class AircraftRepo :NSObject{
     }
     
     func fetchAircraft(){
-                let query = CKQuery(recordType: "Aircraft", predicate: NSPredicate(value: true));
+        
+        
+        let query = CKQuery(recordType: "Aircraft", predicate: NSPredicate(value: true));
+        query.sortDescriptors = [NSSortDescriptor(key: "callsign",ascending : false)];
+        
+        let operation = CKQueryOperation(query: query);
+        
+        operation.queryCompletionBlock = {(cursor,error) in
+            print("fetching complete");
+            if error != nil{
+                
+            }
+        }
+    
+    
+            operation.recordFetchedBlock = {record in
+                print("downloaded");
+                let air = Aircraft(record : record);
+                self.list.append(air);
+            }
+            
+           
+            publicDB.add(operation);
+            
+        
+    /*
+    
+      
         
         publicDB.perform(query, inZoneWith: nil){
-            [unowned self] results,error in
-            if error != nil{
-                DispatchQueue.main.async {
+            [unowned self] (results,error) in
+            if (error != nil)  {
+                print();
+            }
+               DispatchQueue.main.async
+                {
+                    
                   //  self.delegate?.errorUpdating(error as NSError);
                    // print("cloud query error : \(error)");
                 }
-                return;
-            }
+        
+        
+        
+    
             self.list.removeAll(keepingCapacity: true);
             results?.forEach({(record:CKRecord) in
                 
@@ -111,7 +147,10 @@ class AircraftRepo :NSObject{
               //  self.delegate?.modelUpdated();
 }
 }
+ */
+    
 }
 }
+
     
 

@@ -58,7 +58,7 @@ class TableViewController : UIViewController,UIImagePickerControllerDelegate,UIN
         let total = pic + dual + sim + instructor;
         if(total > 0 )
         {
-            let newFlight = Flight(date: dateFlight!, aircraft: aircraft!, route: contView.txfRoute.text!, comment: contView.txfComments.text!, PIC: pic, dual: dual, Sim: sim, instructor: instructor, total: total, photo: UIImage())
+            let newFlight = Flight(date: dateFlight!, aircraft: aircraft!, route: contView.txfRoute.text!, comment: contView.txfComments.text!, PIC: pic, dual: dual, Sim: sim, instructor: instructor,  photo: UIImage())
             
             repo.addFlight(flight: newFlight);
             reset();

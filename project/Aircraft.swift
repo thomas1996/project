@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CloudKit
 
 
 class Aircraft : NSObject{
@@ -18,5 +19,10 @@ class Aircraft : NSObject{
         self.type = type
         self.origin = origin
 
+    }
+    init(record : CKRecord){
+        self.callsign = record["callsign"] as! String;
+        self.type = record["type"] as! String;
+        self.origin = record["origin"] as! String;
     }
 }
