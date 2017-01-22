@@ -85,6 +85,10 @@ class SecondViewController: UIViewController,UITableViewDataSource, UITableViewD
         
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        tbltable.reloadData();
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

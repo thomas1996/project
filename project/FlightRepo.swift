@@ -12,7 +12,7 @@ import CloudKit
 
 class FlightRepo {
     
-    //let database = CKContainer.defaultContainer().privateCloudDatabase
+    
     
     var list:[Flight] = []
     
@@ -52,7 +52,7 @@ class FlightRepo {
     func getAllFlights(type : String)->[Flight]{
         var heli = [Flight]();
         for flight in list{
-            if(flight.aircraft?.origin.lowercased() == type)
+            if(flight.aircraft.origin.lowercased() == type)
             {
                 heli.append(flight);
             }
@@ -63,6 +63,7 @@ class FlightRepo {
         return heli;
     }
     
+    // geprobeerd met cloudkit maar niet genoeg tijd om uit te werken
     
     func fetchFlights(number : Int,flightCompletion:@escaping (Flight)-> Void,completion :@escaping (_ flights:[Flight],_ succes:Bool)->Void){
         

@@ -14,7 +14,7 @@ class Flight {
    
     
     var date : Date;
-    var aircraft : Aircraft?
+    var aircraft : Aircraft
     var comment :  String?
     var route : String?
     //houres

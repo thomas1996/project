@@ -122,13 +122,14 @@ class TableViewController : UIViewController,UIImagePickerControllerDelegate,UIN
         
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true,completion:nil)
+        picker.dismiss(animated: true,completion:nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage;
         imageView.contentMode = UIViewContentMode.scaleAspectFit;
+        picker.dismiss(animated: true, completion: nil);
         
         
         stackImage.isHidden = false;
@@ -144,6 +145,7 @@ class TableViewController : UIViewController,UIImagePickerControllerDelegate,UIN
         //initialise the imagepicker
         
         imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary;
         
        
         
