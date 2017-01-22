@@ -90,7 +90,7 @@
                             <constraint firstItem="SRN-2y-zOt" firstAttribute="leading" secondItem="IjH-KR-pnh" secondAttribute="leading" id="o5P-uz-UWP"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New flight" id="MoX-t6-JHY"/>
+                    <tabBarItem key="tabBarItem" title="New flight" image="Add-30" id="MoX-t6-JHY"/>
                     <connections>
                         <outlet property="imageView" destination="Lg4-nq-JDp" id="UH1-kv-2yG"/>
                         <outlet property="stackImage" destination="vi6-hD-QSd" id="hpc-0n-bO7"/>
@@ -115,7 +115,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GCQ-O3-Z1k" id="fdy-S4-eYL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4L2-W3-kj6">
@@ -154,7 +154,7 @@
                                         <rect key="frame" x="0.0" y="88" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VIf-lo-1kK" id="flp-ci-BQR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Comment" textAlignment="natural" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="86b-1i-Sp7">
@@ -190,7 +190,7 @@
                                         <rect key="frame" x="0.0" y="148" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1k5-iO-nOM" id="dpr-9Q-mop">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvB-Ij-OTS">
@@ -225,7 +225,7 @@
                                         <rect key="frame" x="0.0" y="208" width="375" height="2"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UC8-ko-LGG" id="CU2-f7-fk9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="2"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -237,7 +237,7 @@
                                         <rect key="frame" x="0.0" y="238" width="375" height="156"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SLE-oI-hkU" id="yJo-Oi-3cB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="FlY-FU-tVZ">
@@ -392,7 +392,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xzr-AA-bjN" id="yre-1s-6Mw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -474,7 +474,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vX4-Dd-Xpy" id="uAu-V6-1wz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -492,7 +492,7 @@
                             <constraint firstItem="lXu-kn-LDO" firstAttribute="leading" secondItem="zQk-f3-jcg" secondAttribute="leading" id="wdR-7m-ZOH"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recent flights" id="AsJ-Ur-iE9"/>
+                    <tabBarItem key="tabBarItem" title="Recent flights" image="Past-30" id="AsJ-Ur-iE9"/>
                     <connections>
                         <outlet property="tblTable" destination="O6X-cx-MFl" id="t7n-QN-40o"/>
                     </connections>
@@ -501,7 +501,7 @@
             </objects>
             <point key="canvasLocation" x="1038" y="276"/>
         </scene>
-        <!--Item-->
+        <!--Totals-->
         <scene sceneID="dTg-xC-EVc">
             <objects>
                 <tableViewController id="fuT-G3-1HO" customClass="FourthViewController" customModule="project" customModuleProvider="target" sceneMemberID="viewController">
@@ -794,7 +794,7 @@
                             <outlet property="delegate" destination="fuT-G3-1HO" id="iax-J1-6vU"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="VyO-AP-4m7"/>
+                    <tabBarItem key="tabBarItem" title="Totals" image="Sigma-30" id="VyO-AP-4m7"/>
                     <connections>
                         <outlet property="lblHouresAircraft" destination="EXA-xW-kwu" id="A70-nz-832"/>
                         <outlet property="lblHouresHeli" destination="33c-jo-qJk" id="CTp-4h-x3v"/>
@@ -862,7 +862,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="103.5" id="KHT-78-udQ"/>
                                                 </constraints>
-                                                <variation key="displayGamut=sRGB-heightClass=regular-widthClass=regular" highlightedImage="0AC13BD1-E92B-4A04-8FB1-C3A64174ED1A"/>
+                                                <variation key="displayGamut=sRGB-heightClass=regular-widthClass=regular" highlightedImage="E2FF46A9-130A-4E17-8474-1C98C96427F5"/>
                                             </imageView>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helicopter" translatesAutoresizingMaskIntoConstraints="NO" id="z1a-qN-ta7">
                                                 <rect key="frame" x="237.5" y="0.0" width="137.5" height="103"/>
@@ -909,7 +909,7 @@
         <scene sceneID="W7g-ne-hrd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T7Z-W2-yTy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="my aircraft" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="my aircraft" image="Airport-30" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gr8-Lp-U3A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -926,7 +926,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0AC13BD1-E92B-4A04-8FB1-C3A64174ED1A" width="256" height="256">
+        <image name="Add-30" width="30" height="30"/>
+        <image name="Airport-30" width="30" height="30"/>
+        <image name="E2FF46A9-130A-4E17-8474-1C98C96427F5" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -942,8 +944,9 @@ AZkBoAGoAbUBugG8Ab4BwwHLAc4B0wHbAd4B8AHzAfgAAAAAAAACAQAAAAAAAAA/AAAAAAAAAAAAAAAA
 AAAB+g
 </mutableData>
         </image>
+        <image name="Past-30" width="30" height="30"/>
+        <image name="Sigma-30" width="30" height="30"/>
         <image name="aircraft" width="256" height="256"/>
         <image name="helicopter" width="512" height="512"/>
-        <image name="second" width="30" height="30"/>
     </resources>
 </document>
