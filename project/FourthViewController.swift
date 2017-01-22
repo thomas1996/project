@@ -24,13 +24,13 @@ class FourthViewController: UITableViewController{
     
     
     func initData(){
-        loadData(list: flightRepo.getAllFlights(type: "helicopter"),min: 1);
-        loadData(list: flightRepo.getAllFlights(type: "aircraft"),min: 6);
+        loadData(list: flightRepo.getAllFlights(type: "helicopter"),listLabel: lblHouresHeli);
+        loadData(list: flightRepo.getAllFlights(type: "aircraft"),listLabel: lblHouresAircraft);
         lblTotalHoures.text = String(total);
         
     }
     
-    func loadData(list: [Flight],min: Int){
+    func loadData(list: [Flight],listLabel : [UILabel]){
         
                 var pic = 0.0;
         var dual = 0.0;
@@ -45,8 +45,8 @@ class FourthViewController: UITableViewController{
             total += pic + dual + sim + instr;
         }
 
-        for index in min...(min+4){
-            let label = self.view.viewWithTag(index) as! UILabel;
+        for index in 0...4{
+            let label = listLabel[index]
             
             switch index {
             case 0:

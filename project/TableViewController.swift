@@ -77,19 +77,9 @@ class TableViewController : UIViewController,UIImagePickerControllerDelegate,UIN
         imagePicker.allowsEditing = false;
         imagePicker.sourceType = .photoLibrary;
         
-        //  presentedViewController(imagePicker,animated:true,completion:nil);
-        
-        
+    
     }
     @IBAction func dismiss(sender: AnyObject){
-        /*  if let url = imageUrl{
-         
-         let fileManager = FileManager()
-         if fileManager.fileExistsAtPath(url.absoluteString!) {
-         fileManager.removeItemAtURL(url, error: nil)
-         }
-         }
-         */
         
         navigationController?.popViewController(animated: true)
     }

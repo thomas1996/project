@@ -78,7 +78,7 @@ class FirstViewController: UITableViewController, UIPickerViewDataSource, UIPick
         txfAircraft.text = option.getList()[row].callsign
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         textField.delegate = self;
         if textField == txfDate {

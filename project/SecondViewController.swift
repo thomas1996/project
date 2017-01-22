@@ -44,34 +44,8 @@ class SecondViewController: UIViewController,UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
                 let cell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath)
-        /*
-        let image = UIImageView();
-        let stack = UIStackView();
-        let callsign = UILabel();
-        let type = UILabel();
-        
-        callsign.text = repo.getList()[indexPath.item].callsign;
-        type.text = repo.getList()[indexPath.item].type;
-        stack.axis = .horizontal;
-        
-        switch repo.getList()[indexPath.item].origin.lowercased() {
-            case "aircraft":image.image = #imageLiteral(resourceName: "aircraft");
-            case "helicopter":image.image = #imageLiteral(resourceName: "helicopter");
-        default:
-            image.image = #imageLiteral(resourceName: "helicopter");
-        }
-        
-        
-        
-        stack.addArrangedSubview(image);
-        stack.addArrangedSubview(callsign);
-        stack.addArrangedSubview(type)
-        //cell.textLabel?.text =
-        cell.addSubview(stack);
- */
-        
-        switch repo.getList()[indexPath.item].origin.lowercased() {
-        case "aircraft":cell.imageView?.image = #imageLiteral(resourceName: "aircraft");
+                switch repo.getList()[indexPath.item].origin.lowercased() {
+        case "aircraft":cell.imageView?.image = #imageLiteral(resourceName: "Airplane ");
         case "helicopter":cell.imageView?.image = #imageLiteral(resourceName: "helicopter");
         default:
             cell.imageView?.image = #imageLiteral(resourceName: "helicopter");
@@ -82,6 +56,17 @@ class SecondViewController: UIViewController,UITableViewDataSource, UITableViewD
 
         return cell
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            tbltable.deleteRows(at: [indexPath], with: .fade);
+            _ = repo.deleteAircraft(aircraft: repo.getList()[indexPath.item]);
+            }
+    }
+    
     
 
     override func viewDidLoad() {
